@@ -2,8 +2,7 @@
 #cache: bundler
 install:
   - chmod u+x deploy.sh
-  - ./doxy/make
-#  - ./deploy.sh
+  - ./deploy.sh
 #  - ./deploy.sh
 
 env:

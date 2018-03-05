@@ -5,6 +5,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH
   exit 0
 fi
 
+#gem install rack
+gem install github_changelog_generator
 
 rev=$(git rev-parse --short HEAD)
 
@@ -15,11 +17,11 @@ git config user.email $CHANGELOG_EMAIL
 
 CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
 
-#git remote add upstream "https://git@github.com/$TRAVIS_REPO_SLUG.git"
+#git remote add upstream "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
 #git fetch upstream
 #git checkout $CHANGELOG_BRANCH
 
-make
+github_changelog_generator
 
 #git add -A CHANGELOG.md
 #git commit -m "updated changelog at ${rev}"

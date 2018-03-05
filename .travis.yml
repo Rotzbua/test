@@ -1,4 +1,4 @@
-language: php
+dist: trusty
 after_success:
   - ./deploy-changelog.sh;
 env:

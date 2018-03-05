@@ -17,12 +17,12 @@ git config user.email $CHANGELOG_EMAIL
 
 CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
 
-git remote add upstream "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
-git fetch upstream
-git checkout $CHANGELOG_BRANCH
+#git remote add upstream "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
+#git fetch upstream
+#git checkout $CHANGELOG_BRANCH
 
 github_changelog_generator
 
-git add -A CHANGELOG.md
-git commit -m "updated changelog at ${rev}"
-git push upstream $CHANGELOG_BRANCH
+#git add -A CHANGELOG.md
+#git commit -m "updated changelog at ${rev}"
+#git push upstream $CHANGELOG_BRANCH

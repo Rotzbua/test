@@ -1,7 +1,6 @@
-language: ruby
-cache: bundler
+#language: ruby
+#cache: bundler
 install:
-#  - gem install github_changelog_generator
   - chmod u+x deploy.sh
   - ./doxy/make
 #  - ./deploy.sh

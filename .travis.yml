@@ -1,5 +1,16 @@
 #language: ruby
 #cache: bundler
+
+# Install dependencies
+addons:
+  apt:
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
+
 install:
   - chmod u+x deploy.sh
   - ./deploy.sh

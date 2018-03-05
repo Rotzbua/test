@@ -1,5 +1,10 @@
-#language: ruby
-#cache: bundler
+# This will run on Travis' 'new' container-based infrastructure
+sudo: false
+
+# Blacklist
+branches:
+  except:
+    - gh-pages
 
 # Install dependencies
 addons:
@@ -8,12 +13,16 @@ addons:
       - doxygen
       - xsltproc
 
-
-install:
-  - chmod u+x deploy.sh
-  - ./deploy.sh
-#  - ./deploy.sh
-
 env:
   global:
   - CHANGELOG_BRANCH=master
+
+install:
+  - chmod u+x deploy.sh
+
+script:
+  - make
+
+after_success:
+  - ./deploy.sh
+#  - ./deploy.sh

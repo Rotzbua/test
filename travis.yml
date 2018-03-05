@@ -1,0 +1,8 @@
+language: php
+after_success:
+  - ./deploy-changelog.sh;
+env:
+  global:
+  - CHANGELOG_BRANCH=master
+  - secure: <YOUR ENCRYPTED $GITHUB_TOKEN>
+  - secure: <YOUR ENCRYPTED $CHANGELOG_GITHUB_TOKEN>

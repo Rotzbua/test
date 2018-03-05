@@ -5,7 +5,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH
   exit 0
 fi
 
-gem install rack -v 1.6.4
+gem install rack
 gem install github_changelog_generator
 
 rev=$(git rev-parse --short HEAD)

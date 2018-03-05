@@ -1,5 +1,5 @@
 language: ruby
-after_success:
+install:
   - ./deploy-changelog.sh;
 env:
   global:

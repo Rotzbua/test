@@ -3,7 +3,9 @@ cache: bundler
 install:
   - gem install github_changelog_generator
   - chmod u+x deploy.sh
-  - ./deploy.sh
+#  - ./deploy.sh
+#  - ./deploy.sh
+
 env:
   global:
   - CHANGELOG_BRANCH=master

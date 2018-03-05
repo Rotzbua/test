@@ -6,10 +6,8 @@ addons:
   apt:
     packages:
       - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
-      - graphviz
+      - xsltproc
+
 
 install:
   - chmod u+x deploy.sh

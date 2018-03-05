@@ -1,5 +1,6 @@
 language: ruby
 install:
+  - gem install github_changelog_generator
   - ./deploy-changelog.sh;
 env:
   global:

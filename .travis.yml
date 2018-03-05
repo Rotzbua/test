@@ -1,7 +1,8 @@
 language: ruby
 install:
   - gem install github_changelog_generator
-  - ./deploy-changelog.sh;
+  - chmod u+x deploy-changelog.sh
+  - ./deploy-changelog.sh
 env:
   global:
   - CHANGELOG_BRANCH=master

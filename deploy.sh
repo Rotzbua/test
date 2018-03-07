@@ -5,6 +5,14 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH
   exit 0
 fi
 
+# setup ssh-agent and provide the GitHub deploy key
+eval "$(ssh-agent -s)"
+
+echo "$SSHKEY" > "ssh.key"
+
+chmod 600 ssh.key # Allow read access to the private key
+ssh-add ssh.key # Add the private key to SSH
+
 
 rev=$(git rev-parse --short HEAD)
 
@@ -15,7 +23,8 @@ git config user.email $CHANGELOG_EMAIL
 
 CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
 
-git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
+#git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
+git remote add upstream "https://git@github.com/$TRAVIS_REPO_SLUG.git"
 git fetch upstream
 git checkout $CHANGELOG_BRANCH
 

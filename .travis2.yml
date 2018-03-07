@@ -6,6 +6,13 @@ branches:
   except:
     - gh-pages
 
+# Install dependencies
+addons:
+  apt:
+    packages:
+      - doxygen
+      - xsltproc
+
 env:
   global:
   - CHANGELOG_BRANCH=master
@@ -13,6 +20,9 @@ env:
 install:
   - chmod u+x deploy.sh
 
+script:
+  - make
 
 after_success:
   - ./deploy.sh
+#  - ./deploy.sh

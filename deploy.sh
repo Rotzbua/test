@@ -9,11 +9,12 @@ fi
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
 
-echo "$SSHKEY" > "ssh.key"
+#echo "$SSHKEY" > "ssh.key"
 
 chmod 600 ssh.key # Allow read access to the private key
 ssh-add ssh.key # Add the private key to SSH
 
+echo "ssh done"
 
 rev=$(git rev-parse --short HEAD)
 
@@ -28,8 +29,6 @@ CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
 git remote add upstream "https://git@github.com/$TRAVIS_REPO_SLUG.git"
 git fetch upstream
 git checkout $CHANGELOG_BRANCH
-
-make
 
 git add -A  keywords.txt
 git commit -m "updated keywords.txt at ${rev}"

@@ -13,6 +13,5 @@ env:
 install:
   - chmod u+x deploy.sh
 
-
-after_success:
+script:
   - ./deploy.sh

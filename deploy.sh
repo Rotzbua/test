@@ -9,7 +9,7 @@ fi
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
 
-#echo "$SSHKEY" > "ssh.key"
+echo "$SSHKEY" > "ssh.key"
 
 chmod 600 ssh.key # Allow read access to the private key
 ssh-add ssh.key # Add the private key to SSH

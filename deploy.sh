@@ -9,8 +9,9 @@ fi
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
 
-echo "$SSHKEY" > "ssh.key"
+echo "$SSHKEY" > "sshb64.key"
 
+base64 --decode --ignore-garbage sshb64.key > ssh.key
 chmod 600 ssh.key # Allow read access to the private key
 ssh-add ssh.key # Add the private key to SSH
 
@@ -31,6 +32,6 @@ git fetch upstream
 git checkout $CHANGELOG_BRANCH
 
 git add -A  keywords.txt
-git commit -m "updated keywords.txt at ${rev}"
+git commit -m "updated keywords.txt at ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 

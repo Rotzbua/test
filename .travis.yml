@@ -1,6 +1,10 @@
 # This will run on Travis' 'new' container-based infrastructure
 sudo: false
 
+# Limit clone depth, does it speed up the build?
+git:
+  depth: false
+
 # Blacklist
 branches:
   except:

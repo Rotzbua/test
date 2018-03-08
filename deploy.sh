@@ -32,6 +32,6 @@ git fetch upstream
 git checkout $CHANGELOG_BRANCH
 
 git add -A  keywords.txt
-git commit -m "updated keywords.txt at ${rev}" -m "[skip ci]"
+git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 

@@ -1,8 +1,13 @@
 #!/bin/bash
 set -e
 
-echo "[start] Deploy keywords.txt changes."
+CHANGELOG_NAME=${CHANGELOG_NAME:='Travis CI'}
+CHANGELOG_EMAIL=${CHANGELOG_EMAIL:='travis@example.com'}
+CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
 
+echo "[start] Generate and deploy keywords.txt changes."
+
+# Not on pull request or development branches
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   echo "[abort] This commit is a pull request!"
   exit 0
@@ -21,22 +26,27 @@ base64 --decode --ignore-garbage sshb64.key > ssh.key
 chmod 600 ssh.key # Allow read access to the private key
 ssh-add ssh.key # Add the private key to SSH
 
-echo "ssh done"
+echo "[ok] ssh setup done"
 
+# Generate keywords.txt
+echo "[info] generate keywords.txt"
+make
+echo "[ok] generated keywords.txt"
+
+# Deploy
+echo "[info] deploy keywords.txt"
 rev=$(git rev-parse --short HEAD)
 
-CHANGELOG_EMAIL=${CHANGELOG_EMAIL:='travis@example.com'}
-
-git config user.name "Travis CI"
+# setup commit user
+git config user.name $CHANGELOG_NAME
 git config user.email $CHANGELOG_EMAIL
 
-CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
-
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
-#git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
+git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
 #git fetch upstream
 #git checkout $CHANGELOG_BRANCH
 
+# commit changes
 git add -A  keywords.txt
 git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH

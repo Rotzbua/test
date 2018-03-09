@@ -33,9 +33,9 @@ git config user.email $CHANGELOG_EMAIL
 CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
-git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
-git fetch upstream
-git checkout $CHANGELOG_BRANCH
+#git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
+#git fetch upstream
+#git checkout $CHANGELOG_BRANCH
 
 git add -A  keywords.txt
 git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"

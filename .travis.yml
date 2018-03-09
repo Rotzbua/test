@@ -14,6 +14,7 @@ branches:
 addons:
   apt:
     packages:
+      # for deploy_keywords.sh
       - doxygen
       - xsltproc
 
@@ -21,12 +22,10 @@ env:
   global:
   - CHANGELOG_BRANCH=master
 
-install:
-  - chmod u+x deploy.sh
-
 script:
   - make
 
 after_success:
-  - ./deploy.sh
+  - chmod u+x deploy_keywords.sh
+  - ./deploy_keywords.sh
 

@@ -60,7 +60,6 @@ PICC_DumpDetailsToSerial	KEYWORD2
 PICC_DumpMifareClassicToSerial	KEYWORD2
 PICC_DumpMifareClassicSectorToSerial	KEYWORD2
 PICC_DumpMifareUltralightToSerial	KEYWORD2
-MIFARE_SetAccessBits	KEYWORD2
 PICC_IsNewCardPresent	KEYWORD2
 PICC_ReadCardSerial	KEYWORD2
 PICC_GetType	KEYWORD2

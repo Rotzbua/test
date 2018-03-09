@@ -416,6 +416,7 @@ public:
 	// Convenience functions - does not add extra functionality
 	/////////////////////////////////////////////////////////////////////////////////////
 	virtual bool PICC_IsNewCardPresent();
+	virtual bool PICC_ReadCardSerial();
 	
 protected:
 	// Pins

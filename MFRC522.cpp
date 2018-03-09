@@ -1641,3 +1641,16 @@ bool MFRC522::PICC_IsNewCardPresent() {
 	MFRC522::StatusCode result = PICC_RequestA(bufferATQA, &bufferSize);
 	return (result == STATUS_OK || result == STATUS_COLLISION);
 } // End PICC_IsNewCardPresent()
+
+/**
+ * Simple wrapper around PICC_Select.
+ * Returns true if a UID could be read.
+ * Remember to call PICC_IsNewCardPresent(), PICC_RequestA() or PICC_WakeupA() first.
+ * The read UID is available in the class variable uid.
+ * 
+ * @return bool
+ */
+bool MFRC522::PICC_ReadCardSerial() {
+	MFRC522::StatusCode result = PICC_Select(&uid);
+	return (result == STATUS_OK);
+} // End 

@@ -1,8 +1,14 @@
 #!/bin/bash
 set -e
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH" ]; then
-  echo "This commit was made against the $TRAVIS_BRANCH and not $CHANGELOG_BRANCH! Changelog not updated!"
+echo "[start] Deploy keywords.txt changes."
+
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+  echo "[abort] This commit is a pull request!"
+  exit 0
+fi
+if [ "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH" ]; then
+  echo "[abort] This commit was made against the $TRAVIS_BRANCH and not $CHANGELOG_BRANCH!"
   exit 0
 fi
 
@@ -32,6 +38,7 @@ git fetch upstream
 git checkout $CHANGELOG_BRANCH
 
 git add -A  keywords.txt
-git commit -m "updated keywords.txt at ${rev}" -m "[skip ci]"
+git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 
+echo "[end] Successful deployed keywords.txt changes."

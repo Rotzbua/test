@@ -43,8 +43,8 @@ git config user.email $CHANGELOG_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
 git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
-#git fetch upstream
-#git checkout $CHANGELOG_BRANCH
+git fetch upstream
+git checkout $CHANGELOG_BRANCH
 
 # commit changes
 git add -A  keywords.txt

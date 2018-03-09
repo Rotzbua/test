@@ -20,7 +20,7 @@ addons:
 
 env:
   global:
-  - CHANGELOG_NAME=Travis CI - Keywords Bot
+  - CHANGELOG_NAME="Travis CI - Keywords Bot"
   - CHANGELOG_EMAIL=travis@example.com
   - CHANGELOG_BRANCH=master
 

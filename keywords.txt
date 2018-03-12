@@ -61,6 +61,7 @@ PICC_DumpMifareClassicToSerial	KEYWORD2
 PICC_DumpMifareClassicSectorToSerial	KEYWORD2
 PICC_DumpMifareUltralightToSerial	KEYWORD2
 PICC_IsNewCardPresent	KEYWORD2
+PICC_ReadCardSerial	KEYWORD2
 PICC_GetType	KEYWORD2
 GetStatusCodeName	KEYWORD2
 PICC_GetTypeName	KEYWORD2

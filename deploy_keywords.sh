@@ -38,7 +38,7 @@ echo "[info] deploy keywords.txt"
 rev=$(git rev-parse --short HEAD)
 
 # setup commit user
-git config user.name $CHANGELOG_NAME
+git config user.name "$CHANGELOG_NAME"
 git config user.email $CHANGELOG_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"

@@ -64,3 +64,5 @@ git commit -m "updated library version by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 
 echo "[end] Successful deployed version changes."
+
+exit 0

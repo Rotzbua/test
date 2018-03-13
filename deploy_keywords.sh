@@ -57,3 +57,5 @@ git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 
 echo "[end] Successful deployed keywords.txt changes."
+
+exit 0

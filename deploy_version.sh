@@ -29,18 +29,18 @@ var="$TRAVIS_COMMIT_MESSAGE"
 
 if [[ "$var" =~ $regex_sanity ]]
 then
-	echo "sanity: version found"
+	echo "[ok] sanity: version found"
 else
-	echo "sanity: no version found"
+	echo "[abort] sanity: no version found"
 	exit 0
 fi
 
 if [[ "$var" =~ $regex_version ]]
 then
 	NEW_VERSION="$BASH_REMATCH"
-	echo "found version, we try to deploy version: $NEW_VERSION"
+	echo "[ok] found version, we try to deploy version: $NEW_VERSION"
 else
-	echo "no version found"
+	echo "[abort] no version found"
 	exit 0
 fi
 

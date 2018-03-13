@@ -20,9 +20,12 @@ addons:
 
 env:
   global:
-  - CHANGELOG_NAME="Travis CI - Keywords Bot"
-  - CHANGELOG_EMAIL=travis@example.com
-  - CHANGELOG_BRANCH=master
+  - CONFIG_KEYWORDS_NAME="Travis CI - Keywords Bot"
+  - CONFIG_KEYWORDS_EMAIL=travis@example.com
+  - CONFIG_KEYWORDS_BRANCH=master
+  - CONFIG_VERSION_NAME="Travis CI - Version Bot"
+  - CONFIG_VERSION_EMAIL="$CONFIG_KEYWORDS_EMAIL"
+  - CONFIG_VERSION_BRANCH="$CONFIG_KEYWORDS_BRANCH"
 
 script:
   #- make

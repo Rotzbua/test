@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-CHANGELOG_NAME=${CHANGELOG_NAME:='Travis CI'}
-CHANGELOG_EMAIL=${CHANGELOG_EMAIL:='travis@example.com'}
-CHANGELOG_BRANCH=${CHANGELOG_BRANCH:='master'}
+CONFIG_VERSION_NAME=${CONFIG_VERSION_NAME:='Travis CI'}
+CONFIG_VERSION_EMAIL=${CONFIG_VERSION_EMAIL:='travis@example.com'}
+CONFIG_VERSION_BRANCH=${CONFIG_VERSION_BRANCH:='master'}
 
 echo "[start] Update and deploy version."
 
@@ -12,8 +12,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   echo "[abort] This commit is a pull request!"
   exit 0
 fi
-if [ "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH" ]; then
-  echo "[abort] This commit was made against the $TRAVIS_BRANCH and not $CHANGELOG_BRANCH!"
+if [ "$TRAVIS_BRANCH" != "$CONFIG_VERSION_BRANCH" ]; then
+  echo "[abort] This commit was made against the $TRAVIS_BRANCH and not $CONFIG_VERSION_BRANCH!"
   exit 0
 fi
 # Just on push
@@ -58,13 +58,13 @@ echo "[ok] ssh setup done"
 # Fetch git repo
 echo "[info] fetch repo"
 # setup commit user
-git config user.name "$CHANGELOG_NAME"
-git config user.email $CHANGELOG_EMAIL
+git config user.name "$CONFIG_VERSION_NAME"
+git config user.email $CONFIG_VERSION_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
 git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
 git fetch upstream
-git checkout $CHANGELOG_BRANCH
+git checkout $CONFIG_VERSION_BRANCH
 echo "[ok] fetched repo"
 
 # Generate keywords.txt
@@ -82,7 +82,7 @@ rev=$(git rev-parse --short HEAD)
 git add -A  library.properties
 git add -A  library.json
 git commit -m "bumped version to ${NEW_VERSION} by ${rev}" -m "[skip ci]"
-git push upstream $CHANGELOG_BRANCH
+git push upstream $CONFIG_VERSION_BRANCH
 
 echo "[end] Successful deployed version changes."
 

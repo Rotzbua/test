@@ -51,7 +51,8 @@ git fetch upstream
 git checkout $CHANGELOG_BRANCH
 
 # commit changes
-git add -A  keywords.txt
+git add -A  library.properties
+git add -A  library.json
 git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 

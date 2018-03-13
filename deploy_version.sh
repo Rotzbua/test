@@ -71,7 +71,7 @@ echo "[ok] fetched repo"
 echo "[info] generate version"
 
 sed -i -e 2c"version=${NEW_VERSION}" library.properties
-sed -i -e 3c"\s\s\"version\": \"${NEW_VERSION}\"," library.json
+sed -i -e 3c"\ \ \"version\": \"${NEW_VERSION}\"," library.json
 
 echo "[ok] generated version"
 

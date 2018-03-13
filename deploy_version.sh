@@ -22,6 +22,29 @@ if [ "$TRAVIS_EVENT_TYPE" != "push" ]; then
   exit 0
 fi
 
+# grab version
+regex_sanity="(ready for version )([0-9]+\.[0-9]+\.[0-9]+)+"
+regex_version="([0-9]+\.[0-9]+\.[0-9]+)+"
+var="ready for version 1.1.31"
+
+if [[ "$var" =~ $regex_sanity ]]
+then
+	VERSION="$BASH_REMATCH"
+	echo "sanity: version found"
+else
+	echo "sanity: no version found"
+	exit 0
+fi
+
+if [[ "$var" =~ $regex_version ]]
+then
+	VERSION="$BASH_REMATCH"
+	echo "found version, we try to deploy version: $VERSION"
+else
+	echo "no version found"
+	exit 0
+fi
+
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
 
@@ -50,7 +73,7 @@ echo "[info] generate version"
 
 NEW_VERSION=1.3.8
 sed -i -e 2c"version=${NEW_VERSION}" library.properties
-sed -i -e 3c"\"version\": \"${NEW_VERSION}\"," library.json
+sed -i -e 3c"  \"version\": \"${NEW_VERSION}\"," library.json
 
 echo "[ok] generated version"
 
@@ -60,7 +83,7 @@ rev=$(git rev-parse --short HEAD)
 # commit changes
 git add -A  library.properties
 git add -A  library.json
-git commit -m "updated library version by ${rev}" -m "[skip ci]"
+git commit -m "bumped version to ${VERSION} by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 
 echo "[end] Successful deployed version changes."

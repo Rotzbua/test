@@ -30,7 +30,11 @@ echo "[ok] ssh setup done"
 
 # Generate keywords.txt
 echo "[info] generate keywords.txt"
-make
+
+NEW_VERSION=1.3.7
+sed -i -e 2c"version=${NEW_VERSION}" library.properties
+sed -i -e 3c"\"version\": \"${NEW_VERSION}\"," library.json
+
 echo "[ok] generated keywords.txt"
 
 # Deploy
@@ -45,10 +49,6 @@ git config user.email $CHANGELOG_EMAIL
 git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
 git fetch upstream
 git checkout $CHANGELOG_BRANCH
-
-NEW_VERSION=1.3.7
-sed -i -e 2c"version=${NEW_VERSION}" library.properties
-sed -i -e 3c"\"version\": \"${NEW_VERSION}\"," library.json
 
 # commit changes
 git add -A  keywords.txt

@@ -48,7 +48,7 @@ echo "[ok] fetched repo"
 # Generate keywords.txt
 echo "[info] generate version"
 
-NEW_VERSION=1.3.7
+NEW_VERSION=1.3.8
 sed -i -e 2c"version=${NEW_VERSION}" library.properties
 sed -i -e 3c"\"version\": \"${NEW_VERSION}\"," library.json
 

@@ -29,7 +29,6 @@ var="ready for version 1.1.31"
 
 if [[ "$var" =~ $regex_sanity ]]
 then
-	VERSION="$BASH_REMATCH"
 	echo "sanity: version found"
 else
 	echo "sanity: no version found"
@@ -38,8 +37,8 @@ fi
 
 if [[ "$var" =~ $regex_version ]]
 then
-	VERSION="$BASH_REMATCH"
-	echo "found version, we try to deploy version: $VERSION"
+	NEW_VERSION="$BASH_REMATCH"
+	echo "found version, we try to deploy version: $NEW_VERSION"
 else
 	echo "no version found"
 	exit 0
@@ -71,7 +70,6 @@ echo "[ok] fetched repo"
 # Generate keywords.txt
 echo "[info] generate version"
 
-NEW_VERSION=1.3.8
 sed -i -e 2c"version=${NEW_VERSION}" library.properties
 sed -i -e 3c"  \"version\": \"${NEW_VERSION}\"," library.json
 
@@ -83,7 +81,7 @@ rev=$(git rev-parse --short HEAD)
 # commit changes
 git add -A  library.properties
 git add -A  library.json
-git commit -m "bumped version to ${VERSION} by ${rev}" -m "[skip ci]"
+git commit -m "bumped version to ${NEW_VERSION} by ${rev}" -m "[skip ci]"
 git push upstream $CHANGELOG_BRANCH
 
 echo "[end] Successful deployed version changes."

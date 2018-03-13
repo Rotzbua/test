@@ -81,7 +81,7 @@ rev=$(git rev-parse --short HEAD)
 # commit changes
 git add -A  library.properties
 git add -A  library.json
-git commit -m "bumped version to ${NEW_VERSION} by ${rev}" -m "[skip ci]"
+git commit -m "bump version to ${NEW_VERSION} by ${rev}" -m "[skip ci]"
 git push upstream $CONFIG_VERSION_BRANCH
 
 echo "[end] Successful deployed version changes."

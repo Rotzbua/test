@@ -33,7 +33,8 @@ deploy:
   - provider: script
     script: bash ./deploy_keywords.sh
     on:
-      branch: master
+      branch: dev
+      #branch: master
       #all_branches: true
   - provider: script
     script: bash ./deploy_version.sh

@@ -16,6 +16,11 @@ if [ "$TRAVIS_BRANCH" != "$CHANGELOG_BRANCH" ]; then
   echo "[abort] This commit was made against the $TRAVIS_BRANCH and not $CHANGELOG_BRANCH!"
   exit 0
 fi
+# Just on push
+if [ "$TRAVIS_EVENT_TYPE" != "push" ]; then
+  echo "[abort] Can be only triggered by 'push' event!"
+  exit 0
+fi
 
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"

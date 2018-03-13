@@ -28,9 +28,15 @@ script:
   #- make
   - echo "script"
 
-after_success:
-  - chmod u+x deploy_keywords.sh
-  #- ./deploy_keywords.sh
-  - chmod u+x deploy_version.sh
-  - ./deploy_version.sh
+#after_success:
+deploy:
+  - provider: script
+    script: bash ./deploy_keywords.sh
+    on:
+      branch: master
+      #all_branches: true
+  - provider: script
+    script: bash ./deploy_version.sh
+    on:
+      branch: master
 

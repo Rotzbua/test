@@ -15,8 +15,8 @@ addons:
   apt:
     packages:
       # for deploy_keywords.sh
-      #- doxygen
-      #- xsltproc
+      - doxygen
+      - xsltproc
 
 env:
   global:

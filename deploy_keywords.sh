@@ -52,9 +52,7 @@ git fetch upstream
 git checkout $CONFIG_KEYWORDS_BRANCH
 
 # commit changes
-git add -A  keywords.txt
-git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]"
-git push upstream $CONFIG_KEYWORDS_BRANCH
+git add -A  keywords.txt && git commit -m "updated keywords.txt by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_KEYWORDS_BRANCH || true
 
 echo "[end] Successful deployed keywords.txt changes."
 

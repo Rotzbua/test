@@ -1,6 +1,6 @@
 {
   "name": "MFRC522",
-  "version": "2.3.2",
+  "version": "1.5.5",
   "keywords": "rfid, spi",
   "description": "Read a card using a MFRC522 reader on your SPI interface",
   "repository":

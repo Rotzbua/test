@@ -411,6 +411,7 @@ public:
 	void PICC_DumpMifareUltralightToSerial();
 	
 	// Advanced functions for MIFARE
+	void MIFARE_SetAccessBits(byte *accessBitBuffer, byte g0, byte g1, byte g2, byte g3);
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	// Convenience functions - does not add extra functionality

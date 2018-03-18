@@ -43,4 +43,8 @@ deploy:
     script: bash ./deploy_version.sh
     on:
       branch: master
+  - provider: script
+    script: bash ./deploy_changelog.sh
+    on:
+      branch: master
 

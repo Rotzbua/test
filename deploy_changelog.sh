@@ -50,7 +50,7 @@ git config user.name "$CONFIG_KEYWORDS_NAME"
 git config user.email $CONFIG_KEYWORDS_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
-git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git"
+git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git" || true
 git fetch upstream
 git checkout $CONFIG_KEYWORDS_BRANCH
 

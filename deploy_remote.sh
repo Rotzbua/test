@@ -28,7 +28,7 @@ git config user.name "$CONFIG_REMOTE_NAME"
 git config user.email $CONFIG_REMOTE_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
-git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git" || true
+git clone "git@github.com:$TRAVIS_REPO_SLUG.git" 
 git fetch upstream
 git checkout $CONFIG_REMOTE_BRANCH
 echo "[ok] fetched repo"

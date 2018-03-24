@@ -5,6 +5,7 @@ CONFIG_REMOTE_NAME=${CONFIG_REMOTE_NAME:='Travis CI'}
 CONFIG_REMOTE_EMAIL=${CONFIG_REMOTE_EMAIL:='travis@example.com'}
 CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='test'}
 TARGET=${PWD}
+TARGET=$TRAVIS_BUILD_DIR
 
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
@@ -28,7 +29,7 @@ git config user.name "$CONFIG_REMOTE_NAME"
 git config user.email $CONFIG_REMOTE_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
-git clone "git@github.com:$TRAVIS_REPO_SLUG.git" 
+git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git" 
 git fetch upstream
 git checkout $CONFIG_REMOTE_BRANCH
 echo "[ok] fetched repo"

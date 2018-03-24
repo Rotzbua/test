@@ -3,7 +3,7 @@ set -e
 
 CONFIG_REMOTE_NAME=${CONFIG_REMOTE_NAME:='Travis CI'}
 CONFIG_REMOTE_EMAIL=${CONFIG_REMOTE_EMAIL:='travis@example.com'}
-CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='master'}
+CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='test'}
 
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"

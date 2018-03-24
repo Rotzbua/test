@@ -1,3 +1,10 @@
+#!/bin/bash
+set -e
+
+CONFIG_REMOTE_NAME=${CONFIG_REMOTE_NAME:='Travis CI'}
+CONFIG_REMOTE_EMAIL=${CONFIG_REMOTE_EMAIL:='travis@example.com'}
+CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='master'}
+
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
 
@@ -60,5 +67,5 @@ rm grbl/ -r -f
 
 
 # commit changes
-git add -A && git rm ssh.key && git commit -m "updated remote by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_REMOTE__BRANCH || true
+git add -A && git rm --cached ssh.key && git commit -m "updated remote by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_REMOTE__BRANCH || true
 

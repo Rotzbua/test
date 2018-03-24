@@ -13,13 +13,13 @@ echo "[ok] ssh setup done"
 # Fetch git repo
 echo "[info] fetch repo"
 # setup commit user
-git config user.name "$CONFIG_VERSION_NAME"
-git config user.email $CONFIG_VERSION_EMAIL
+git config user.name "$CONFIG_REMOTE_NAME"
+git config user.email $CONFIG_REMOTE_EMAIL
 
 #git remote add upstream "https://${GH_REPO_TOKEN}@github.com/$TRAVIS_REPO_SLUG.git"
 git remote add upstream "git@github.com:$TRAVIS_REPO_SLUG.git" || true
 git fetch upstream
-git checkout $CONFIG_VERSION_BRANCH
+git checkout $CONFIG_REMOTE_BRANCH
 echo "[ok] fetched repo"
 
 
@@ -60,5 +60,5 @@ rm grbl/ -r -f
 
 
 # commit changes
-git add -A && git rm ssh.key && git commit -m "updated remote by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_KEYWORDS_BRANCH || true
+git add -A && git rm ssh.key && git commit -m "updated remote by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_REMOTE__BRANCH || true
 

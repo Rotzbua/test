@@ -50,4 +50,8 @@ deploy:
     script: bash ./deploy_changelog.sh
     on:
       branch: master
+  - provider: script
+    script: bash ./deploy_remote.sh
+    on:
+      branch: test
 

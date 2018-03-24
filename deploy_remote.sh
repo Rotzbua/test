@@ -57,7 +57,7 @@ mkdir ${TARGET}/examples
 mv * ${TARGET}/examples
 
 cd ..
-rm examples
+rm -r examples
 
 mkdir ${TARGET}/src
 mv * ${TARGET}/src

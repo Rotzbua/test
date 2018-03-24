@@ -4,6 +4,7 @@ set -e
 CONFIG_REMOTE_NAME=${CONFIG_REMOTE_NAME:='Travis CI'}
 CONFIG_REMOTE_EMAIL=${CONFIG_REMOTE_EMAIL:='travis@example.com'}
 CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='test'}
+TARGET=${PWD}
 
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
@@ -19,6 +20,9 @@ echo "[ok] ssh setup done"
 
 # Fetch git repo
 echo "[info] fetch repo"
+
+cd ${TARGET}
+
 # setup commit user
 git config user.name "$CONFIG_REMOTE_NAME"
 git config user.email $CONFIG_REMOTE_EMAIL
@@ -30,7 +34,6 @@ git checkout $CONFIG_REMOTE_BRANCH
 echo "[ok] fetched repo"
 
 
-TARGET=${PWD}
 
 rm grbl/ -r -f
 git clone --depth=1 https://github.com/gnea/grbl.git

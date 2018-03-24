@@ -1,3 +1,15 @@
+# setup ssh-agent and provide the GitHub deploy key
+eval "$(ssh-agent -s)"
+
+echo "$SSHKEY" > "sshb64.key"
+
+base64 --decode --ignore-garbage sshb64.key > ssh.key
+rm sshb64.key
+chmod 600 ssh.key # Allow read access to the private key
+ssh-add ssh.key # Add the private key to SSH
+
+echo "[ok] ssh setup done"
+
 # Fetch git repo
 echo "[info] fetch repo"
 # setup commit user
@@ -48,5 +60,5 @@ rm grbl/ -r -f
 
 
 # commit changes
-git add -A && git commit -m "updated remote by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_KEYWORDS_BRANCH || true
+git add -A && git rm ssh.key && git commit -m "updated remote by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_KEYWORDS_BRANCH || true
 

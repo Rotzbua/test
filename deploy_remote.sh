@@ -72,7 +72,7 @@ rm grbl/ -r -f
 
 # commit changes
 git add -A
-git rm --cached ssh.key
+#git rm --cached ssh.key
 git commit -m "updated remote by ${rev}" -m "[skip ci]"
 git push upstream $CONFIG_REMOTE__BRANCH
 

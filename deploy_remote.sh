@@ -86,8 +86,8 @@ mv examples/ ${TARGET}/
 mkdir -p ${TARGET}/src
 mv *.h ${TARGET}/src
 mv *.c ${TARGET}/src
-mv *.hpp ${TARGET}/src
-mv *.cpp ${TARGET}/src
+mv *.hpp ${TARGET}/src || true
+mv *.cpp ${TARGET}/src || true
 
 # remove temporary downloaded git
 cd ${TARGET}

@@ -39,7 +39,7 @@ COPY_GIT=https://github.com/gnea/grbl.git
 
 # cleanup repository
 #rm grbl/ -r -f
-find -not -name '.*' -delete
+find ! -path '*/.*' -delete
 
 git clone --depth=1 $COPY_GIT
 

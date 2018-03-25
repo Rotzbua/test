@@ -35,9 +35,10 @@ git checkout $CONFIG_REMOTE_BRANCH
 echo "[ok] fetched repo"
 
 
+COPY_GIT=https://github.com/gnea/grbl.git
 
 rm grbl/ -r -f
-git clone --depth=1 https://github.com/gnea/grbl.git
+git clone --depth=1 $COPY_GIT
 
 cd grbl
 
@@ -55,17 +56,35 @@ git checkout $latestTag
 
 cd grbl
 
-cd examples
+# move license
+mv COPYING ${TARGET}/LICENSE
+mv README.md ${TARGET}/README2.md
+echo "# This is a autodeployed library of abc\n\n" > ${TARGET}/README.md
+echo "## Restrictions\n\n" >> ${TARGET}/README.md
+echo "* No bugfixes\n" >> ${TARGET}/README.md
+echo "* No issue tracker\n" >> ${TARGET}/README.md
+echo "* No support\n\n" >> ${TARGET}/README.md
+echo "## Features\n\n" >> ${TARGET}/README.md
+echo "* Automatically deploys newest tag of the according git\n" >> ${TARGET}/README.md
+echo "* Adds support for Arduino library\n\n" >> ${TARGET}/README.md
+echo "## Autor: Rotzbua" >> ${TARGET}/README.md
 
-mkdir ${TARGET}/examples
-mv * ${TARGET}/examples
+# move examples
+#cd examples
+#mkdir -p ${TARGET}/examples
+#mv * ${TARGET}/examples
+#cd ..
+#rm -r examples
+mv /examples/ ${TARGET}/
 
-cd ..
-rm -r examples
+# move source files
+mkdir -p ${TARGET}/src
+mv *.h ${TARGET}/src
+mv *.c ${TARGET}/src
+mv *.hpp ${TARGET}/src
+mv *.cpp ${TARGET}/src
 
-mkdir ${TARGET}/src
-mv * ${TARGET}/src
-
+# remove temporary downloaded git
 cd ${TARGET}
 rm grbl/ -r -f
 

@@ -37,7 +37,10 @@ echo "[ok] fetched repo"
 
 COPY_GIT=https://github.com/gnea/grbl.git
 
-rm grbl/ -r -f
+# cleanup repository
+#rm grbl/ -r -f
+find -not -name '.*' -delete
+
 git clone --depth=1 $COPY_GIT
 
 cd grbl
@@ -52,12 +55,9 @@ git fetch --tags
 
 git checkout $latestTag
 
-#rm -r .git
-
-cd grbl
-
 # move license
 mv COPYING ${TARGET}/LICENSE
+# move doc
 mv README.md ${TARGET}/README2.md
 echo "# This is a autodeployed library of abc\n\n" > ${TARGET}/README.md
 echo "## Restrictions\n\n" >> ${TARGET}/README.md
@@ -68,6 +68,11 @@ echo "## Features\n\n" >> ${TARGET}/README.md
 echo "* Automatically deploys newest tag of the according git\n" >> ${TARGET}/README.md
 echo "* Adds support for Arduino library\n\n" >> ${TARGET}/README.md
 echo "## Autor: Rotzbua" >> ${TARGET}/README.md
+mkdir -p ${TARGET}/extras
+mv doc/ ${TARGET}/extras/
+
+# enter source code folder
+cd grbl
 
 # move examples
 #cd examples

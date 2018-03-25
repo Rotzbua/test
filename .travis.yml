@@ -54,7 +54,7 @@ deploy:
     on:
       branch: master
   - provider: script
-    script: bash ./deploy_remote.sh
+    script: bash ./.deploy_remote.sh
     on:
       branch: test
 

@@ -80,7 +80,7 @@ cd grbl
 #mv * ${TARGET}/examples
 #cd ..
 #rm -r examples
-mv /examples/ ${TARGET}/
+mv examples/ ${TARGET}/
 
 # move source files
 mkdir -p ${TARGET}/src

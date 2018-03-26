@@ -6,6 +6,8 @@ CONFIG_REMOTE_EMAIL=${CONFIG_REMOTE_EMAIL:='travis@example.com'}
 CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='test'}
 TARGET=${PWD}
 TARGET=$TRAVIS_BUILD_DIR
+# care, do not run script more than once a day!
+deployTag=DATE=`date +%Y.%m.%d`
 
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"
@@ -59,7 +61,10 @@ git checkout $latestTag
 mv COPYING ${TARGET}/LICENSE
 # move doc
 mv README.md ${TARGET}/README2.md
-echo -e "# This is a autodeployed library of ${COPY_GIT}\n" > ${TARGET}/README.md
+echo -e "# This is a autodeployed library\n"> ${TARGET}/README.md
+echo -e "Remote repository: ${COPY_GIT}" >> ${TARGET}/README.md
+echo -e "Remote tag: ${latestTag}" >> ${TARGET}/README.md
+echo -e "Local tag: ${deployTag}\n" >> ${TARGET}/README.md
 echo -e "## Restrictions\n" >> ${TARGET}/README.md
 echo -e "* No bugfixes" >> ${TARGET}/README.md
 echo -e "* No issue tracker" >> ${TARGET}/README.md
@@ -97,6 +102,6 @@ rm grbl/ -r -f
 # commit changes
 git add -A
 #git rm --cached ssh.key
-git commit -m "updated remote by ${latestTag}" -m "[skip ci]"
+git commit -m "updated remote by ${latestTag}" -m "[skip ci]" && git commit -m "ready for version ${deployTag}" --allow-empty
 git push upstream $CONFIG_REMOTE__BRANCH
 

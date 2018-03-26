@@ -1,8 +1,12 @@
 # This is a autodeployed library
 
-Remote repository: https://github.com/gnea/grbl.git
-Remote tag: v1.1f.20170801
-Local tag: 2018.03.26
+Remote repository: https://github.com/gnea/grbl
+
+Remote tag: [v1.1f.20170801](https://github.com/gnea/grbl/tree/v1.1f.20170801)
+
+Local tag: [2018.03.26](./tree/2018.03.26)
+
+Original readme: see [REAMDE2.md](./blob/test/README2.md)
 
 ## Restrictions
 

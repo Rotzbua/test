@@ -37,13 +37,13 @@ git checkout $CONFIG_REMOTE_BRANCH
 echo "[ok] fetched repo"
 
 
-COPY_GIT=https://github.com/gnea/grbl.git
+COPY_GIT=https://github.com/gnea/grbl
 
 # cleanup repository
 #rm grbl/ -r -f
 find ! -path '*/.*' -delete
 
-git clone --depth=1 $COPY_GIT
+git clone --depth=1 ${COPY_GIT}.git
 
 cd grbl
 
@@ -62,9 +62,10 @@ mv COPYING ${TARGET}/LICENSE
 # move doc
 mv README.md ${TARGET}/README2.md
 echo -e "# This is a autodeployed library\n"> ${TARGET}/README.md
-echo -e "Remote repository: ${COPY_GIT}" >> ${TARGET}/README.md
-echo -e "Remote tag: ${latestTag}" >> ${TARGET}/README.md
-echo -e "Local tag: ${deployTag}\n" >> ${TARGET}/README.md
+echo -e "Remote repository: ${COPY_GIT}\n" >> ${TARGET}/README.md
+echo -e "Remote tag: [${latestTag}](${COPY_GIT}/tree/${latestTag})\n" >> ${TARGET}/README.md
+echo -e "Local tag: [${deployTag}](./tree/${deployTag})\n" >> ${TARGET}/README.md
+echo -e "Original readme: see [REAMDE2.md](./blob/${TRAVIS_BRANCH}/README2.md)\n" >> ${TARGET}/README.md
 echo -e "## Restrictions\n" >> ${TARGET}/README.md
 echo -e "* No bugfixes" >> ${TARGET}/README.md
 echo -e "* No issue tracker" >> ${TARGET}/README.md

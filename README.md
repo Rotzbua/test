@@ -1,4 +1,8 @@
-# This is a autodeployed library of https://github.com/gnea/grbl.git
+# This is a autodeployed library
+
+Remote repository: https://github.com/gnea/grbl.git
+Remote tag: v1.1f.20170801
+Local tag: DATE=2018.03.26
 
 ## Restrictions
 

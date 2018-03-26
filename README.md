@@ -2,7 +2,7 @@
 
 Remote repository: https://github.com/gnea/grbl.git
 Remote tag: v1.1f.20170801
-Local tag: DATE=2018.03.26
+Local tag: 2018.03.26
 
 ## Restrictions
 

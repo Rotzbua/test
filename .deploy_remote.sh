@@ -7,7 +7,7 @@ CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='test'}
 TARGET=${PWD}
 TARGET=$TRAVIS_BUILD_DIR
 # care, do not run script more than once a day!
-deployTag=DATE=`date +%Y.%m.%d`
+deployTag=`date +%Y.%m.%d`
 
 # setup ssh-agent and provide the GitHub deploy key
 eval "$(ssh-agent -s)"

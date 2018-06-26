@@ -55,7 +55,7 @@ git fetch upstream
 git checkout $CONFIG_CHANGELOG_BRANCH
 
 # commit changes
-git add -A  CHANGELOG.md && git commit -m "updated changelog.txt by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_CHANGELOG_BRANCH || true
+git add -A  CHANGELOG.md && git commit -m "update changelog.txt by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_CHANGELOG_BRANCH || true
 
 echo "[end] Successful deployed keywords.txt changes."
 

@@ -33,7 +33,7 @@ env:
   - CONFIG_CHANGELOG_BRANCH="$CONFIG_KEYWORDS_BRANCH"
   - CONFIG_EX_AUTOFORMAT_NAME="Travis CI - Examples Autoformat Bot"
   - CONFIG_EX_AUTOFORMAT_EMAIL="$CONFIG_KEYWORDS_EMAIL"
-  - CONFIG_EX_AUTOFORMAT_BRANCH="$CONFIG_KEYWORDS_BRANCH"
+  - CONFIG_EX_AUTOFORMAT_BRANCH="test-formatter"
 
 script:
   #- make
@@ -58,4 +58,4 @@ deploy:
   - provider: script
     script: bash ./deploy_examples_autoformat.sh
     on:
-      branch: master
+      branch: test-formatter

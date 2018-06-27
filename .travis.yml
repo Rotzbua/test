@@ -20,7 +20,7 @@ addons:
       - doxygen
       - xsltproc
       # for deploy_examples.sh
-      - astyle
+      - astyle/trusty-backports
 
 env:
   global:

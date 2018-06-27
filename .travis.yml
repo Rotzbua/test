@@ -14,7 +14,7 @@ branches:
 addons:
   apt:
     sources:
-      - trusty-backports
+      - sourceline: "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
     packages:
       # for deploy_keywords.sh
       - doxygen

@@ -33,6 +33,9 @@ ssh-add ssh.key # Add the private key to SSH
 
 echo "[ok] ssh setup done"
 
+echo "[info] astyle version"
+astyle --version
+
 # Generate keywords.txt
 echo "[info] format examples"
 find examples -name '*.ino' -exec astyle --options=formatter.conf {} \;

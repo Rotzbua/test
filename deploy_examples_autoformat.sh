@@ -55,7 +55,7 @@ git fetch upstream
 git checkout $CONFIG_EX_AUTOFORMAT_BRANCH
 
 # commit changes
-git add -A  keywords.txt && git commit -m "autoformat examples by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_EX_AUTOFORMAT_BRANCH || true
+git add "*.ino" && git commit -m "autoformat examples by ${rev}" -m "[skip ci]" && git push upstream $CONFIG_EX_AUTOFORMAT_BRANCH || true
 
 echo "[end] Successful deployed examples changes."
 

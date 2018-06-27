@@ -13,8 +13,6 @@ branches:
 # Install dependencies
 addons:
   apt:
-    sources:
-      - sourceline: "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
     packages:
       # for deploy_keywords.sh
       - doxygen

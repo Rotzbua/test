@@ -17,6 +17,8 @@ addons:
       # for deploy_keywords.sh
       - doxygen
       - xsltproc
+      # for deploy_examples.sh
+      - astyle
 
 env:
   global:
@@ -29,6 +31,9 @@ env:
   - CONFIG_CHANGELOG_NAME="Travis CI - Changelog Bot"
   - CONFIG_CHANGELOG_EMAIL="$CONFIG_KEYWORDS_EMAIL"
   - CONFIG_CHANGELOG_BRANCH="$CONFIG_KEYWORDS_BRANCH"
+  - CONFIG_EX_AUTOFORMAT_NAME="Travis CI - Examples Autoformat Bot"
+  - CONFIG_EX_AUTOFORMAT_EMAIL="$CONFIG_KEYWORDS_EMAIL"
+  - CONFIG_EX_AUTOFORMAT_BRANCH="$CONFIG_KEYWORDS_BRANCH"
 
 script:
   #- make
@@ -50,4 +55,7 @@ deploy:
     script: bash ./deploy_changelog.sh
     on:
       branch: master
-
+  - provider: script
+    script: bash ./deploy_examples_autoformat.sh
+    on:
+      branch: master

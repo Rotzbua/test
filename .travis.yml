@@ -13,6 +13,8 @@ branches:
 # Install dependencies
 addons:
   apt:
+    sources:
+      - trusty-backports
     packages:
       # for deploy_keywords.sh
       - doxygen

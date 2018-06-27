@@ -20,7 +20,7 @@ addons:
       - doxygen
       - xsltproc
       # for deploy_examples.sh
-      - astyle
+      - astyle-2.04
 
 env:
   global:

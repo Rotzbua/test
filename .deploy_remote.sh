@@ -41,7 +41,7 @@ COPY_GIT=https://github.com/gnea/grbl
 
 # cleanup repository
 #rm grbl/ -r -f
-find ! -path '*/.*' -delete
+#find ! -path '*/.*' -delete
 
 git clone --depth=1 ${COPY_GIT}.git
 

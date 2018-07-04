@@ -3,7 +3,7 @@ set -e
 
 CONFIG_REMOTE_NAME=${CONFIG_REMOTE_NAME:='Travis CI'}
 CONFIG_REMOTE_EMAIL=${CONFIG_REMOTE_EMAIL:='travis@example.com'}
-CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='test'}
+CONFIG_REMOTE_BRANCH=${CONFIG_REMOTE_BRANCH:='auto_remote'}
 TARGET=${PWD}
 TARGET=$TRAVIS_BUILD_DIR
 # care, do not run script more than once a day!

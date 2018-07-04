@@ -56,5 +56,5 @@ deploy:
   - provider: script
     script: bash ./.deploy_remote.sh
     on:
-      branch: test
+      branch: auto_remote
 

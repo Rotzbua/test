@@ -93,7 +93,7 @@ mv *.cpp ${TARGET}/src || true
 cd ${TARGET}
 rm grbl/ -r -f
 
-if ! [[ $(git status --porcelain) ]]; then
+if ! [[ $(git status --porcelain | grep --invert-match -e "README\.md") ]]; then
   # No changes
   echo "[exit] no changes from remote git"
   exit

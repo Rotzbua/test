@@ -66,20 +66,6 @@ cd grbl
 mv COPYING ${TARGET}/LICENSE
 # move doc
 mv README.md ${TARGET}/README2.md
-echo -e "# This is a autodeployed library\n"> ${TARGET}/README.md
-echo -e "Remote repository: ${COPY_GIT}\n" >> ${TARGET}/README.md
-echo -e "Remote tag: [${latestTag}](${COPY_GIT}/tree/${latestTag})\n" >> ${TARGET}/README.md
-echo -e "Local tag: [${deployTag}](./tree/${deployTag})\n" >> ${TARGET}/README.md
-echo -e "Original readme: [REAMDE2.md](./blob/README2.md)\n" >> ${TARGET}/README.md
-echo -e "License: [LICENSE](./blob/LICENSE)\n" >> ${TARGET}/README.md
-echo -e "## Restrictions\n" >> ${TARGET}/README.md
-echo -e "* No bugfixes" >> ${TARGET}/README.md
-echo -e "* No issue tracker" >> ${TARGET}/README.md
-echo -e "* No support\n" >> ${TARGET}/README.md
-echo -e "## Features\n" >> ${TARGET}/README.md
-echo -e "* Automatically deploys newest tag of the according git" >> ${TARGET}/README.md
-echo -e "* Adds support for Arduino library\n" >> ${TARGET}/README.md
-echo -e "## Autor: Rotzbua" >> ${TARGET}/README.md
 mkdir -p ${TARGET}/extras
 mv doc/ ${TARGET}/extras/
 
@@ -107,6 +93,26 @@ mv *.cpp ${TARGET}/src || true
 cd ${TARGET}
 rm grbl/ -r -f
 
+if [![ `git status --porcelain` ]]; then
+  # No changes
+  exit
+fi
+
+# create readme
+echo -e "# This is a autodeployed library\n"> ${TARGET}/README.md
+echo -e "Remote repository: ${COPY_GIT}\n" >> ${TARGET}/README.md
+echo -e "Remote tag: [${latestTag}](${COPY_GIT}/tree/${latestTag})\n" >> ${TARGET}/README.md
+echo -e "Local tag: [${deployTag}](./tree/${deployTag})\n" >> ${TARGET}/README.md
+echo -e "Original readme: [REAMDE2.md](./blob/README2.md)\n" >> ${TARGET}/README.md
+echo -e "License: [LICENSE](./blob/LICENSE)\n" >> ${TARGET}/README.md
+echo -e "## Restrictions\n" >> ${TARGET}/README.md
+echo -e "* No bugfixes" >> ${TARGET}/README.md
+echo -e "* No issue tracker" >> ${TARGET}/README.md
+echo -e "* No support\n" >> ${TARGET}/README.md
+echo -e "## Features\n" >> ${TARGET}/README.md
+echo -e "* Automatically deploys newest tag of the according git" >> ${TARGET}/README.md
+echo -e "* Adds support for Arduino library\n" >> ${TARGET}/README.md
+echo -e "## Autor: Rotzbua" >> ${TARGET}/README.md
 
 # commit changes
 git add -A

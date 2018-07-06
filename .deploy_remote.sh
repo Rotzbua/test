@@ -40,8 +40,8 @@ echo "[ok] fetched repo"
 COPY_GIT=https://github.com/gnea/grbl
 
 # cleanup repository
-rm grbl/ -r -f
-#find ! -path '*/.*' -delete
+#rm grbl/ -r -f
+find ! -path '*/.*' -delete
 
 #git clone --depth=1 --tags ${COPY_GIT}.git
 #latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
@@ -92,9 +92,11 @@ cd grbl
 #mv * ${TARGET}/examples
 #cd ..
 #rm -r examples
+#rm ${TARGET}/examples/ -r -f
 mv examples/ ${TARGET}/
 
 # move source files
+#rm ${TARGET}/src/ -r -f
 mkdir -p ${TARGET}/src
 mv *.h ${TARGET}/src
 mv *.c ${TARGET}/src

@@ -119,5 +119,5 @@ echo -e "## Autor: Rotzbua" >> ${TARGET}/README.md
 git add -A
 #git rm --cached ssh.key
 git commit -m "updated remote by ${latestTag}" -m "[skip ci]" && git commit -m "ready for version ${deployTag}" --allow-empty
-git push upstream $CONFIG_REMOTE__BRANCH
+git push upstream $CONFIG_REMOTE_BRANCH
 

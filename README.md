@@ -8,7 +8,7 @@ Local tag: [2018.07.06](./tree/2018.07.06)
 
 Original readme: [REAMDE2.md](./blob/README2.md)
 
-License: [LICENSE](./blob/LICENSE)
+License: [LICENSE](./LICENSE)
 
 ## Restrictions
 

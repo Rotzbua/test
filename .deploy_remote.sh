@@ -103,7 +103,7 @@ fi
 echo -e "# This is a autodeployed library\n"> "${TARGET}"/README.md
 echo -e "Remote repository: ${COPY_GIT}\n" >> "${TARGET}"/README.md
 echo -e "Remote tag: [${latestTag}](${COPY_GIT}/tree/${latestTag})\n" >> "${TARGET}"/README.md
-echo -e 'Local tag: [${deployTag}](./tree/${deployTag})\n' >> "${TARGET}"/README.md
+echo -e 'Local tag: [${deployTag}](../../releases/tag/${deployTag})\n' >> "${TARGET}"/README.md
 echo -e 'Original readme: [REAMDE2.md](./README2.md)\n' >> "${TARGET}"/README.md
 echo -e 'License: [LICENSE](./LICENSE)\n' >> "${TARGET}"/README.md
 echo -e '## Restrictions\n' >> "${TARGET}"/README.md

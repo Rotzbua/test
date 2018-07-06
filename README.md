@@ -4,7 +4,7 @@ Remote repository: https://github.com/gnea/grbl
 
 Remote tag: [v1.1f.20170801](https://github.com/gnea/grbl/tree/v1.1f.20170801)
 
-Local tag: [2018.03.26](./tree/2018.03.26)
+Local tag: [2018.07.06](./tree/2018.07.06)
 
 Original readme: [REAMDE2.md](./blob/README2.md)
 

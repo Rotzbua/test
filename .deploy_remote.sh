@@ -40,22 +40,27 @@ echo "[ok] fetched repo"
 COPY_GIT=https://github.com/gnea/grbl
 
 # cleanup repository
-#rm grbl/ -r -f
+rm grbl/ -r -f
 #find ! -path '*/.*' -delete
 
-git clone --depth=1 ${COPY_GIT}.git
+#git clone --depth=1 --tags ${COPY_GIT}.git
+#latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
-cd grbl
-
-latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+latestTag=$(git ls-remote --tags -q ${COPY_GIT}.git | sort -t '/' -k 3 -V | awk -F'/' '{ print $3 }' | tail -n 1)
 
 echo ${latestTag}
 
-#git clone -b 'v2.0' --single-branch --depth 1 https://github.com/git/git.git
+latestHash=$(git ls-remote --tags -q | sort -t '/' -k 3 -V | awk -F' ' '{ print $1 }' | tail -n 1)
 
-git fetch --tags
+echo ${latestHash}
 
-git checkout $latestTag
+git clone --single-branch --depth 1 -b ${latestTag} ${COPY_GIT}.git
+
+cd grbl
+
+#exit
+#git fetch --tags
+#git checkout $latestTag
 
 # move license
 mv COPYING ${TARGET}/LICENSE

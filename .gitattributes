@@ -27,3 +27,6 @@ ROADMAP.md export-ignore
 *.txt text
 *.rst text
 *.ino text diff=cpp
+
+# Include example files
+examples/**.ino linguist-documentation=false

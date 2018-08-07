@@ -7,12 +7,3 @@
 /phpunit.xml export-ignore
 /changelog.md export-ignore
 /readme.md export-ignore
-
-.github/ export-ignore
-.gitattribute export-ignore
-.gitignore export-ignore
-
-doc/*.doc export-ignore
-
-.travis.yml export-ignore
-

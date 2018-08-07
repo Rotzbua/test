@@ -5,7 +5,7 @@
  * Later versions should support c++14, then use c++14 syntax
  */
 #ifndef DEPRECATED_H
-#define DEPRECATED_H
+#define DEPRECATED_H 
 
 #ifdef __has_cpp_attribute
 #if __has_cpp_attribute(deprecated)

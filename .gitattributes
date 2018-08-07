@@ -24,4 +24,4 @@ ROADMAP.md export-ignore
 *.h text
 *.txt text
 *.rst text
-*.ino text
+*.ino text diff=cpp

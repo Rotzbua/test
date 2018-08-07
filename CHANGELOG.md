@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/Rotzbua/test/tree/HEAD)
-
-[Full Changelog](https://github.com/Rotzbua/test/compare/1.5.5...HEAD)
+## [0.0.2](https://github.com/Rotzbua/test/tree/0.0.2) (2018-08-07)
+[Full Changelog](https://github.com/Rotzbua/test/compare/1.5.5...0.0.2)
 
 **Merged pull requests:**
 

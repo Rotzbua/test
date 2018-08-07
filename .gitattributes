@@ -20,7 +20,7 @@ ROADMAP.md export-ignore
 
 # Explicitly declare text files we want to always be normalized and converted 
 # to native line endings on checkout.
-*.c text
+*.c text linguist-language=cpp
 *.h text
 *.txt text
 *.rst text

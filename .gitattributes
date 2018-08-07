@@ -22,6 +22,8 @@ ROADMAP.md export-ignore
 # to native line endings on checkout.
 *.c text
 *.h text linguist-language=cpp
+*.cpp text
+*.hpp text linguist-language=cpp
 *.txt text
 *.rst text
 *.ino text diff=cpp

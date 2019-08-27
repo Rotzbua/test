@@ -2,11 +2,11 @@
 
 Remote repository: https://github.com/gnea/grbl
 
-Remote tag: [v1.1f.20170801](https://github.com/gnea/grbl/tree/v1.1f.20170801)
+Remote tag: [v1.1h.20190825](https://github.com/gnea/grbl/tree/v1.1h.20190825)
 
-Local tag: [2018.07.06](./tree/2018.07.06)
+Local tag: [${deployTag}](../../releases/tag/${deployTag})
 
-Original readme: [REAMDE2.md](./blob/README2.md)
+Original readme: [REAMDE2.md](./README2.md)
 
 License: [LICENSE](./LICENSE)
 

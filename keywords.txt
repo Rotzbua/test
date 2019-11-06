@@ -105,6 +105,10 @@ MFRC522Hack	KEYWORD2
 MIFARE_OpenUidBackdoor	KEYWORD2
 MIFARE_SetUid	KEYWORD2
 MIFARE_UnbrickUidSector	KEYWORD2
+PCD_Init	KEYWORD2
+cmake_minimum_required	KEYWORD2
+set	KEYWORD2
+set	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
